@@ -11,7 +11,7 @@
     <Header />
     <div class="p-10">
       <h2 class="text-3xl font-bold mb-8">Все кроссовки</h2>
-      
+      <h2 class="text-3xl font-bold mb-8">Отсановился на 2:14(корзина) https://youtu.be/U_-Ht_v-oAs</h2>
       <CardList />
     </div>
   </div>
