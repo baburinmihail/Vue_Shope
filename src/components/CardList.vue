@@ -16,6 +16,5 @@
             :isFavorite="true"
             :onClickAdd="onClickAdd"
         />
-
     </div>
 </template>
