@@ -1,10 +1,47 @@
 <script setup>
+  //хук для onMounted
+  import { onMounted } from 'vue';
+  //для запроса к бэку
+  import axios from 'axios';
   //import MyHello from './components/MyHello.vue'
   //import CardTest from './components/CardTest.vue'
   import Header from './components/Header.vue'
   import Card from './components/Card.vue'
   import CardList from './components/CardList.vue';
   import Drawer from './components/Drawer.vue';
+  import { ref } from 'vue';
+
+  const sortBy = ref('');
+  const searchQuery = ref('');
+  //onMounted(()=>{
+    //альтернатива , но он хуже
+    //fetch('http://127.0.0.1:8000/api/sneker')
+    //  .then((res) => res.json())
+    //  .then((data) => {
+    //    console.log(data)
+    //  })
+
+    //работает
+    //axios.get('http://127.0.0.1:8000/api/sneker').then(resp => console.log(resp.data))
+  //})
+
+  const items = ref([]);
+
+  onMounted(async () => {
+    try {
+      const {data} = await axios.get('http://127.0.0.1:8000/api/sneker');
+
+      items.value = data;
+    } catch(err){
+      console.log(err);
+    }
+  })
+
+  //отслеживаю состояние на странице
+  watch(sortBy, async () => {
+
+  });
+
 </script>
 
 <template>
@@ -29,8 +66,10 @@
         </div>
       </div>
 
-      <h2 class="text-3xl font-bold mb-8">Отсановился на 3:02(необходимо сделать API для кросовок id,title,price,image) https://youtu.be/U_-Ht_v-oAs</h2>
-      <CardList />
+      <h2 class="text-3xl font-bold mb-8">Отсановился на 3:27(необходимо сделать API запрос на сортировку кросовок вниз, верх , и поик) https://youtu.be/U_-Ht_v-oAs</h2>
+      <div class="mt-10">
+        <CardList :items="items"/>
+      </div>
     </div>
   </div>
 </template>

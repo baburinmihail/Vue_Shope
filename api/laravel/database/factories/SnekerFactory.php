@@ -18,10 +18,11 @@ class SnekerFactory extends Factory
      */
     public function definition(): array
     {
+
         return [
             'title' => fake()->sentence(),
             'price' => rand(5, 1000),
-            'image' => fake()->imageUrl(),
+            'image' => "/sneakers/sneakers-".rand(1, 12).".jpg",
         ];
     }
 }
