@@ -38,9 +38,9 @@
   })
 
   //отслеживаю состояние на странице
-  watch(sortBy, async () => {
+  //watch(sortBy, async () => {
 
-  });
+  //});
 
 </script>
 
